@@ -1,21 +1,19 @@
 # 24-7 StatTrack
 ## 1. Global idea
 
-In our application, we plan to track user speed, mileage and geolocation
-for further analysis, building interesting graphs and based on the user data give some advices.
+In our application, we plan to track user's indicators, such as speed, mileage and geolocation
+for further analysis, building interesting charts and giving advices to user, based on the collected data.
 For implementation of this application we plan to use Kotlin for mobile development and NodeJS for backend.
 
-## 2. Aim auditory
+## 2. Target audience
 
 The application should be universal and easy to use, so everyone can use the application 
 and take some advantage of it.
 
 ## 3. Team
 
-Our team consists of three persons: Pavlo Trotsiuk, Nikita Kemarsky and Alexander Filatov. I 
-(Pavlo) I will play a partially dual role: NodeJS Backend Developer and Kotlin Developer. I will also conduct 
-code review, merge and control the scrum process. The main NodeJS Backend Developer and Database Administrator 
-is Kemarskiy Nikita. And Kotlin Developer is Filatov Alexander.
+Our team consists of three persons: Pavlo Trotsiuk, Nikita Kemarsky and Alexander Filatov. Pavlo plays a partially dual role: NodeJS Backend Developer and Kotlin Mobile Developer. Also he does code review, merge and controls the scrum process. The main NodeJS Backend Developer and Database Administrator 
+is Kemarskiy Nikita. Filatov Alexander is Kotlin Developer.
 
 ## 4. Techologies
 
@@ -27,3 +25,5 @@ documentation, good community, easy syntax, fast. Why Kotlin? We develop only fo
 writing code than on Java. We will support android versions 10+ and higher.
 
 ## 5. Prototypes
+
+You can check out StatTrack mockups [here](https://www.figma.com/proto/DHaOQMl0KYIpd6Kpx5wkvX/Untitled?node-id=16%3A108&frame-preset-name=Android&scaling=scale-down)
