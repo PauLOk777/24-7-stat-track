@@ -4,11 +4,11 @@
 In our application, we plan to track user's indicators, such as speed, mileage and geolocation
 for further analysis, building interesting charts and giving advices to user, based on the collected data.
 For implementation of this application we plan to use Kotlin for mobile development and NodeJS for backend.
+This application is created mostly for fun and lifestyle analysis.
 
 ## 2. Target audience
 
-The application should be universal and easy to use, so everyone can use the application 
-and take some advantage of it.
+Main target - curious students, who want to know more about themselves.
 
 ## 3. Team
 
@@ -26,4 +26,10 @@ writing code than on Java. We will support android versions 10+ and higher.
 
 ## 5. Prototypes
 
+List of screens:
+  1. Sign in
+  2. Main screen: contains basic indicators stats, buttons to move to other screens
+  3. Statistics: contains detailed indicators' statistics
+  4. Charts: contains charts based on indicators' collected data
+  5. Map: contains history of user movements at specific date and time
 You can check out StatTrack mockups [here](https://www.figma.com/proto/DHaOQMl0KYIpd6Kpx5wkvX/Untitled?node-id=16%3A108&frame-preset-name=Android&scaling=scale-down)
