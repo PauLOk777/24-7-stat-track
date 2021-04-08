@@ -22,7 +22,7 @@ databases and Kotlin for mobile development. Why NodeJS? It is not difficult to 
 good performance and is quite cheap to design. It allows you to easily write an API. It is also very 
 suitable for this type of application. Why PostgreSQL? Open-source, supported today, a lot of 
 documentation, good community, easy syntax, fast. Why Kotlin? We develop only for Android, faster
-writing code than on Java. We will support android versions 10+ and higher.
+writing code than on Java. We will support android versions 4.4+ and higher.
 
 ## 5. Prototypes
 
