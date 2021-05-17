@@ -27,9 +27,8 @@ writing code than on Java. We will support android versions 4.4+ and higher.
 ## 5. Prototypes
 
 List of screens:
-  1. Sign in
-  2. Main screen: contains basic indicators stats, buttons to move to other screens
-  3. Statistics: contains detailed indicators' statistics
-  4. Charts: contains charts based on indicators' collected data
-  5. Map: contains history of user movements at specific date and time
+  1. Main screen: contains basic indicators stats, buttons to move to other screens
+  2. Statistics: contains detailed indicators' statistics
+  3. Charts: contains charts based on indicators' collected data
+  4. Map: contains history of user movements at specific date and time
 You can check out StatTrack mockups [here](https://www.figma.com/proto/DHaOQMl0KYIpd6Kpx5wkvX/Untitled?node-id=16%3A108&frame-preset-name=Android&scaling=scale-down)
