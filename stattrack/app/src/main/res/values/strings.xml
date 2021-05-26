@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">24/7 stattrack</string>
+    <string name="statistics_text">Statistics</string>
+    <string name="charts_text">Graphics</string>
+    <string name="map_text">Trips on map</string>
+    <string name="back_text">Back</string>
+    <string name="days_text">D</string>
+    <string name="weeks_text">W</string>
+    <string name="months_text">M</string>
+    <string name="years_text">Y</string>
+    <string name="activity_text">Activity</string>
+    <string name="distance_text">Distance</string>
+    <string name="speed_text">Speed</string>
+    <string name="min_text">Min</string>
+    <string name="max_text">Max</string>
+    <string name="avg_text">AVG</string>
+    <string name="select_date_text">Select Date</string>
+    <string name="ok_text">OK</string>
+    <string name="temperature_text">Temperature</string>
+    <string name="avg_speed_text">AVG speed</string>
+    <string name="now_text">Now</string>
+</resources>
