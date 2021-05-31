@@ -87,8 +87,8 @@
         android:id="@+id/back_to_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
         android:text="@string/back_text"
         app:backgroundTint="#AFB1B3"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -96,8 +96,8 @@
 
     <TextView
         android:id="@+id/textView24"
-        android:layout_width="350dp"
-        android:layout_height="215dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/map_text"
         android:textSize="96sp"
