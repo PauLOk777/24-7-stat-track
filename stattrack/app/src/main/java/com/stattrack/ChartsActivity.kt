@@ -1,9 +1,9 @@
 package com.stattrack
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.stattrack.R
 
 class ChartsActivity : AppCompatActivity() {
 
@@ -15,10 +15,6 @@ class ChartsActivity : AppCompatActivity() {
 
         backButton = findViewById(R.id.back_to_main)
 
-        backButton.setOnClickListener { backToMain() }
-    }
-
-    private fun backToMain() {
-        startActivity(Intent(this, MainActivity::class.java))
+        backButton.setOnClickListener { onBackPressed() }
     }
 }
