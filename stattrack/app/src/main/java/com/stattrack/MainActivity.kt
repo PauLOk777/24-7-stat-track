@@ -37,7 +37,6 @@ class MainActivity : AppCompatActivity()/*, SensorEventListener*/ {
 
         statisticsButton = findViewById(R.id.statistics)
         chartsButton = findViewById(R.id.charts)
-        mapButton = findViewById(R.id.map)
 
         mainActivityViewModel.getActivityData().observe(this, { activityData ->
             val distance = findViewById<TextView>(R.id.mainActivityDistance)
@@ -53,7 +52,6 @@ class MainActivity : AppCompatActivity()/*, SensorEventListener*/ {
 
         statisticsButton.setOnClickListener { openStatistics() }
         chartsButton.setOnClickListener { openCharts() }
-        mapButton.setOnClickListener { openMap() }
     }
 
     private fun openStatistics() {
@@ -62,10 +60,6 @@ class MainActivity : AppCompatActivity()/*, SensorEventListener*/ {
 
     private fun openCharts() {
         startActivity(Intent(this, ChartsActivity::class.java))
-    }
-
-    private fun openMap() {
-        startActivity(Intent(this, MapActivity::class.java))
     }
 
 //    override fun onResume() {

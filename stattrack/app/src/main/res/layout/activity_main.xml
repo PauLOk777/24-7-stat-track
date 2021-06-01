@@ -23,20 +23,8 @@
         android:id="@+id/charts"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="68dp"
         android:text="@string/charts_text"
-        app:backgroundTint="#AFB1B3"
-        app:layout_constraintBottom_toTopOf="@+id/map"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintWidth_percent="0.5" />
-
-    <Button
-        android:id="@+id/map"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:text="@string/map_text"
         app:backgroundTint="#AFB1B3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -89,6 +77,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mainActivityCenterActivity" />
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -101,6 +90,7 @@
             app:layout_constraintTop_toBottomOf="@+id/mainActivityDistance" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -163,6 +153,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="200dp"
@@ -176,6 +167,7 @@
             app:layout_constraintVertical_bias="0.24000001" />
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="200dp"
@@ -188,16 +180,5 @@
             app:layout_constraintTop_toBottomOf="@+id/mainActivityAvgTemperature"
             app:layout_constraintVertical_bias="0.24000001" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/map_text"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toTopOf="@+id/statistics"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/temperatureLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

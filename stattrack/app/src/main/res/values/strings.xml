@@ -2,7 +2,6 @@
     <string name="app_name">24/7 stattrack</string>
     <string name="statistics_text">Statistics</string>
     <string name="charts_text">Graphics</string>
-    <string name="map_text">Trips on map</string>
     <string name="back_text">Back</string>
     <string name="days_text">D</string>
     <string name="weeks_text">W</string>
