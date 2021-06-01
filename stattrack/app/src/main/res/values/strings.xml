@@ -19,4 +19,5 @@
     <string name="temperature_text">Temperature</string>
     <string name="avg_speed_text">AVG speed</string>
     <string name="now_text">Now</string>
+    <string name="date_structure_placeholder">dd-mm-yyyy</string>
 </resources>
