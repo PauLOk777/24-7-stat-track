@@ -1,5 +1,6 @@
 package com.stattrack
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.hardware.Sensor
@@ -8,12 +9,18 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.stattrack.models.Measures
+import com.stattrack.network.RetrofitInstance
 import com.stattrack.viewmodels.MainActivityViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.await
 
 class MainActivity : AppCompatActivity(), SensorEventListener {
 
@@ -23,21 +30,21 @@ class MainActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var statisticsButton: Button
     private lateinit var chartsButton: Button
-    private lateinit var mapButton: Button
 
+    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-
         initializeUi()
-//        println(Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID))
+
     }
 
+    @SuppressLint("HardwareIds")
     private fun initializeUi() {
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
         val mainActivityViewModel = ViewModelProvider(this).get(MainActivityViewModel::class.java)
-        mainActivityViewModel.init()
+        mainActivityViewModel.init(Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID))
 
         statisticsButton = findViewById(R.id.statistics)
         chartsButton = findViewById(R.id.charts)

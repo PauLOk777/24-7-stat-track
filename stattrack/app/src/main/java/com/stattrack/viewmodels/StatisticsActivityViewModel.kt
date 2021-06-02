@@ -9,6 +9,9 @@ import com.stattrack.models.StatsPeriod
 import com.stattrack.models.TemperatureData
 import com.stattrack.repositories.ActivityRepository
 import com.stattrack.repositories.TemperatureRepository
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.time.LocalDate
 
 class StatisticsActivityViewModel : ViewModel() {
@@ -17,24 +20,53 @@ class StatisticsActivityViewModel : ViewModel() {
     private var temperatureData: MutableLiveData<TemperatureData> = MutableLiveData()
     private val activityRepository = ActivityRepository.getInstance()
     private val temperatureRepository = TemperatureRepository.getInstance()
+    private lateinit var userId: String
 
-    @SuppressLint("NewApi")
-    fun init() {
-        activityData.value = activityRepository
-            .getActivityData(StatsPeriod.BY_DAY, LocalDate.now())
-        temperatureData.value = temperatureRepository
-            .getTemperatureData(StatsPeriod.BY_DAY, LocalDate.now())
+    fun init(userId: String) {
+        this.userId = userId
+        setActivityData(StatsPeriod.BY_DAY, System.currentTimeMillis())
+        setTemperatureData(StatsPeriod.BY_DAY, System.currentTimeMillis())
+//        activityData.value = activityRepository
+//            .getActivityData(StatsPeriod.BY_DAY, System.currentTimeMillis(), userId)
+//        temperatureData.value = temperatureRepository
+//            .getTemperatureData(StatsPeriod.BY_DAY, System.currentTimeMillis(), userId)
     }
 
     fun getActivityData(): LiveData<ActivityData> = activityData
     fun getTemperatureData(): LiveData<TemperatureData> = temperatureData
 
-    fun setActivityData(period: StatsPeriod, date: LocalDate) {
-        activityData.value = activityRepository.getActivityData(period, date)
+    fun setActivityData(period: StatsPeriod, date: Long) {
+        activityRepository
+            .getActivityData(period, date, userId).enqueue(object: Callback<ActivityData> {
+                override fun onResponse(call: Call<ActivityData>, response: Response<ActivityData>) {
+                    activityData.value = response.body()
+                }
+
+                override fun onFailure(call: Call<ActivityData>, t: Throwable) {
+                    println("getActivityData StatisticsActivityViewModel error")
+                }
+            })
     }
 
-    fun setTemperatureData(period: StatsPeriod, date: LocalDate) {
-        temperatureData.value = temperatureRepository.getTemperatureData(period, date)
+    fun setTemperatureData(period: StatsPeriod, date: Long) {
+        temperatureRepository
+            .getTemperatureData(period, date, userId).enqueue(object: Callback<TemperatureData> {
+                override fun onResponse(call: Call<TemperatureData>, response: Response<TemperatureData>) {
+                    temperatureData.value = response.body()
+                }
+
+                override fun onFailure(call: Call<TemperatureData>, t: Throwable) {
+                    println("getTemperatureData StatisticsActivityViewModel error")
+                }
+            })
     }
+
+//    fun setActivityData(period: StatsPeriod, date: Long) {
+//        activityData.value = activityRepository.getActivityData(period, date, userId)
+//    }
+//
+//    fun setTemperatureData(period: StatsPeriod, date: Long) {
+//        temperatureData.value = temperatureRepository.getTemperatureData(period, date, userId)
+//    }
 
 }
