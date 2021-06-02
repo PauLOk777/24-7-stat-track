@@ -2,6 +2,7 @@ package com.stattrack
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -17,18 +18,23 @@ import java.time.LocalDate
 
 class ChartsActivity : AppCompatActivity() {
 
+    private lateinit var userId: String
+
+    @SuppressLint("HardwareIds")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_charts)
 
         initializeUi()
+
+        userId = Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID)
     }
 
-    @SuppressLint("NewApi")
+    @SuppressLint("NewApi", "HardwareIds")
     private fun initializeUi() {
         val chartsActivityViewModel =
             ViewModelProvider(this).get(ChartsActivityViewModel::class.java)
-        chartsActivityViewModel.init()
+        chartsActivityViewModel.init(Settings.Secure.getString(this.contentResolver, Settings.Secure.ANDROID_ID))
         val backButton = findViewById<Button>(R.id.back_to_main)
         val dayButton = findViewById<Button>(R.id.chartsDay)
         val weekButton = findViewById<Button>(R.id.chartsWeek)
@@ -80,11 +86,11 @@ class ChartsActivity : AppCompatActivity() {
             chartsActivityViewModel.setCurrentPrecision(StatsPrecision.HOUR)
             chartsActivityViewModel.setStepsForChart(
                 StatsPrecision.HOUR,
-                StatsPeriod.BY_DAY, LocalDate.now()
+                StatsPeriod.BY_DAY, System.currentTimeMillis()
             )
             chartsActivityViewModel.setTemperatureForChart(
                 StatsPrecision.HOUR,
-                StatsPeriod.BY_DAY, LocalDate.now()
+                StatsPeriod.BY_DAY, System.currentTimeMillis()
             )
         }
 
@@ -92,11 +98,11 @@ class ChartsActivity : AppCompatActivity() {
             chartsActivityViewModel.setCurrentPrecision(StatsPrecision.DAY)
             chartsActivityViewModel.setStepsForChart(
                 StatsPrecision.DAY,
-                StatsPeriod.BY_WEEK, LocalDate.now()
+                StatsPeriod.BY_WEEK, System.currentTimeMillis()
             )
             chartsActivityViewModel.setTemperatureForChart(
                 StatsPrecision.DAY,
-                StatsPeriod.BY_WEEK, LocalDate.now()
+                StatsPeriod.BY_WEEK, System.currentTimeMillis()
             )
         }
 
@@ -104,11 +110,11 @@ class ChartsActivity : AppCompatActivity() {
             chartsActivityViewModel.setCurrentPrecision(StatsPrecision.DAY)
             chartsActivityViewModel.setStepsForChart(
                 StatsPrecision.DAY,
-                StatsPeriod.BY_MONTH, LocalDate.now()
+                StatsPeriod.BY_MONTH, System.currentTimeMillis()
             )
             chartsActivityViewModel.setTemperatureForChart(
                 StatsPrecision.DAY,
-                StatsPeriod.BY_MONTH, LocalDate.now()
+                StatsPeriod.BY_MONTH, System.currentTimeMillis()
             )
         }
 
@@ -116,11 +122,11 @@ class ChartsActivity : AppCompatActivity() {
             chartsActivityViewModel.setCurrentPrecision(StatsPrecision.MONTH)
             chartsActivityViewModel.setStepsForChart(
                 StatsPrecision.MONTH,
-                StatsPeriod.BY_YEAR, LocalDate.now()
+                StatsPeriod.BY_YEAR, System.currentTimeMillis()
             )
             chartsActivityViewModel.setTemperatureForChart(
                 StatsPrecision.MONTH,
-                StatsPeriod.BY_YEAR, LocalDate.now()
+                StatsPeriod.BY_YEAR, System.currentTimeMillis()
             )
         }
 
