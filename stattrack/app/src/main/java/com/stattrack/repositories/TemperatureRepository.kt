@@ -3,6 +3,8 @@ package com.stattrack.repositories
 import com.stattrack.models.StatsPeriod
 import com.stattrack.models.StatsPrecision
 import com.stattrack.models.TemperatureData
+import com.stattrack.network.RetrofitInstance
+import retrofit2.Call
 import java.time.LocalDate
 
 class TemperatureRepository private constructor() {
@@ -17,14 +19,29 @@ class TemperatureRepository private constructor() {
             }
     }
 
-    fun getTemperatureData(period: StatsPeriod, date: LocalDate): TemperatureData {
-        return getMockDataForActivityData(period)
+    fun getTemperatureData(period: StatsPeriod, date: Long, userId: String): Call<TemperatureData> {
+        return RetrofitInstance.temperatureApi
+            .getTemperatureSummary(userId, period.value, date)
     }
 
-    fun getTemperatureForChart(precision: StatsPrecision, period: StatsPeriod, date: LocalDate)
-            : List<Float?> {
-        return getMockDataForTemperatureChart(period)
+    fun getTemperatureForChart(
+        precision: StatsPrecision, period: StatsPeriod, date: Long,
+        userId: String
+    ): Call<List<Float?>> {
+        return RetrofitInstance.temperatureApi
+            .getTemperatureChart(userId, precision.value, period.value, date)
     }
+
+//    fun getTemperatureData(period: StatsPeriod, date: Long, userId: String): TemperatureData {
+//        return getMockDataForActivityData(period)
+//    }
+//
+//    fun getTemperatureForChart(
+//        precision: StatsPrecision, period: StatsPeriod, date: Long,
+//        userId: String
+//    ): List<Float?> {
+//        return getMockDataForTemperatureChart(period)
+//    }
 
     private fun getMockDataForActivityData(period: StatsPeriod): TemperatureData {
         return when (period) {

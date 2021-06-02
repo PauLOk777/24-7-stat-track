@@ -3,7 +3,8 @@ package com.stattrack.repositories
 import com.stattrack.models.ActivityData
 import com.stattrack.models.StatsPeriod
 import com.stattrack.models.StatsPrecision
-import java.time.LocalDate
+import com.stattrack.network.RetrofitInstance
+import retrofit2.Call
 
 class ActivityRepository private constructor() {
 
@@ -17,14 +18,25 @@ class ActivityRepository private constructor() {
             }
     }
 
-    fun getActivityData(period: StatsPeriod, date: LocalDate): ActivityData {
-        return getMockDataForActivityData(period)
+    fun getActivityData(period: StatsPeriod, date: Long, userId: String): Call<ActivityData> {
+        return RetrofitInstance.activityApi
+            .getActivitySummary(userId, period.value, date)
     }
 
-    fun getStepsForChart(precision: StatsPrecision, period: StatsPeriod, date: LocalDate)
-            : List<Long> {
-        return getMockDataForStepsChart(period)
+    fun getStepsForChart(precision: StatsPrecision, period: StatsPeriod, date: Long, userId: String)
+            : Call<List<Long>> {
+        return RetrofitInstance.activityApi
+            .getStepsChart(userId, precision.value, period.value, date)
     }
+
+//    fun getActivityData(period: StatsPeriod, date: Long, userId: String): ActivityData {
+//        return getMockDataForActivityData(period)
+//    }
+//
+//    fun getStepsForChart(precision: StatsPrecision, period: StatsPeriod, date: Long, userId: String)
+//            : List<Long> {
+//        return getMockDataForStepsChart(period)
+//    }
 
     private fun getMockDataForActivityData(period: StatsPeriod): ActivityData {
         return when (period) {
