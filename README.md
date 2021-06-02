@@ -32,3 +32,8 @@ List of screens:
   3. Charts: contains charts based on indicators' collected data
   4. Map: contains history of user movements at specific date and time
 You can check out StatTrack mockups [here](https://www.figma.com/proto/DHaOQMl0KYIpd6Kpx5wkvX/Untitled?node-id=16%3A108&frame-preset-name=Android&scaling=scale-down)
+
+## 6. API
+
+Link to the github: https://github.com/NikitaKemarskiy/stat-track-api
+
