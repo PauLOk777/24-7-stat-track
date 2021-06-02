@@ -7,47 +7,47 @@
     tools:context=".ChartsActivity">
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/chartsWeek"
         android:layout_width="48dp"
         android:layout_height="49dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/weeks_text"
+        app:backgroundTint="#AFB1B3"
+        app:layout_constraintStart_toEndOf="@+id/chartsDay"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/chartsDay"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="20dp"
         android:text="@string/days_text"
         app:backgroundTint="#AFB1B3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/chartsYear"
         android:layout_width="48dp"
         android:layout_height="49dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/weeks_text"
-        app:backgroundTint="#AFB1B3"
-        app:layout_constraintStart_toEndOf="@+id/button2"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="48dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="40dp"
-        android:text="@string/months_text"
-        app:backgroundTint="#AFB1B3"
-        app:layout_constraintEnd_toStartOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="48dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="40dp"
         android:text="@string/years_text"
         app:backgroundTint="#AFB1B3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/chartsMonth"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="40dp"
+        android:text="@string/months_text"
+        app:backgroundTint="#AFB1B3"
+        app:layout_constraintEnd_toStartOf="@+id/chartsYear"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -62,25 +62,45 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/chartsActivityText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="10dp"
         android:text="@string/activity_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
+        app:layout_constraintTop_toBottomOf="@+id/chartsWeek" />
+
 
     <TextView
-        android:id="@+id/textView23"
+        android:id="@+id/chartsTemperatureText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="10dp"
         android:text="@string/temperature_text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/chartsActivity" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/chartsActivity"
+        android:layout_width="405dp"
+        android:layout_height="179dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chartsActivityText" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/chartsTemperature"
+        android:layout_width="404dp"
+        android:layout_height="177dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chartsTemperatureText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
